@@ -7,14 +7,21 @@ WORKDIR /app/backend
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install Python dependencies
-COPY requirements.txt /app/backend
-RUN pip3 install --upgrade pip -r requirements.txt
+COPY requirements.txt /app/backend/
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-COPY . /app/backend
+# Copy project files
+COPY . /app/backend/
 
-ENV PORT 8000
-EXPOSE 8000
-
+# Set up entrypoint script
 RUN ["chmod", "+x", "/app/backend/entrypoint.sh"]
 ENTRYPOINT ["/app/backend/entrypoint.sh"]
+
+# Expose the application port
+EXPOSE 8000
