@@ -1,8 +1,8 @@
-# Gym Log (backend)
+# IronLedger (backend)
 
 ## Local development
 
-Setup local environment for the development process in the current directory `gym-log/backend`.
+Setup local environment for the development process in the current directory `iron-ledger/backend`.
 
 Create and Activate virtual environment:
 
@@ -10,14 +10,14 @@ Create and Activate virtual environment:
 
 ```shell
 python3.10 -m venv env
-source venv/bin/activate   
+source venv/bin/activate
 ```
 
 ### Windows
 
 ```shell
-virtualenv --python=/usr/bin/python3.10 venv 
-venv\Scripts\activate    
+virtualenv --python=/usr/bin/python3.10 venv
+venv\Scripts\activate
 ```
 
 ### Run in a terminal
